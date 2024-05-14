@@ -31,5 +31,11 @@ namespace Contacts.Models
         [Phone]
         [StringLength(20)]
         public string Phone { get; set; } = null!;
+
+
+        public override string ToString()
+        {
+            return $"{Id} - {FirstName} - {LastName} - {Email} - {Phone}";
+        }
     }
 }

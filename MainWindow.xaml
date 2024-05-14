@@ -9,6 +9,7 @@
         WindowStartupLocation="CenterScreen">
     <StackPanel Margin="10">
         <Button x:Name="newContactButton" Content="New Contact" Click="NewContactButton_Click"/>
+        <TextBox x:Name="searchTextBox" TextChanged="SearchTextBox_TextChanged"/>
         <ListView x:Name="contactsListView" Margin="0,5,0,0" Height="280">
             <ListView.ItemTemplate>
                 <DataTemplate>

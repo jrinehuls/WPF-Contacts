@@ -21,6 +21,7 @@ namespace Contacts
     public partial class MainWindow : Window
     {
         private readonly DataContext _context;
+        private List<Contact> _contacts = [];
         public MainWindow()
         {
             _context = new DataContext();
@@ -38,8 +39,15 @@ namespace Contacts
 
         private async void ReadContacts()
         {
-            List<Contact> contacts = await _context.Contacts.ToListAsync();
-            contactsListView.ItemsSource = contacts;
+            _contacts = await _context.Contacts.ToListAsync();
+            contactsListView.ItemsSource = _contacts;
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string text = searchTextBox.Text.ToLower();
+            List<Contact> filteredContacts = _contacts.Where(c => c.FirstName.ToLower().Contains(text)).ToList();
+            contactsListView.ItemsSource = filteredContacts;
         }
     }
 }

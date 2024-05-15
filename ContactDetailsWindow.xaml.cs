@@ -31,10 +31,7 @@ namespace Contacts
             _context = new DataContext();
             _contact = contact;
             InitializeComponent();
-            firstNameTextBox.Text = _contact.FirstName;
-            lastNameTextBox.Text = _contact.LastName;
-            emailTextBox.Text = _contact.Email;
-            phoneTextBox.Text = _contact.Phone;
+            InitializeTextBoxes();
         }
 
         private async void UpdateButton_Click(object sender, RoutedEventArgs e)
@@ -60,6 +57,14 @@ namespace Contacts
             await _context.SaveChangesAsync();
             new MainWindow().Show();
             Close();
+        }
+
+        private void InitializeTextBoxes()
+        {
+            firstNameTextBox.Text = _contact.FirstName;
+            lastNameTextBox.Text = _contact.LastName;
+            emailTextBox.Text = _contact.Email;
+            phoneTextBox.Text = _contact.Phone;
         }
     }
 }

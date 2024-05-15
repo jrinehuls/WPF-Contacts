@@ -39,7 +39,6 @@ namespace Contacts
 
         private async void ReadContacts()
         {
-            _context = new DataContext();
             _contacts = await _context.Contacts.OrderBy(c => c.Id).ToListAsync();
             contactsListView.ItemsSource = _contacts;
         }
@@ -56,9 +55,8 @@ namespace Contacts
             Contact? contact = (Contact)contactsListView.SelectedItem;
             if (contact is not null)
             {
-                new ContactDetailsWindow(contact).ShowDialog();
-
-                ReadContacts();
+                new ContactDetailsWindow(contact).Show();
+                Close();
             }
 
 

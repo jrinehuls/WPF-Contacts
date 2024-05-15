@@ -50,7 +50,7 @@ namespace Contacts
 
                 await _context.SaveChangesAsync();
             }
-
+            new MainWindow().Show();
             Close();
         }
 
@@ -58,6 +58,7 @@ namespace Contacts
         {
             _context.Contacts.Remove(_contact);
             await _context.SaveChangesAsync();
+            new MainWindow().Show();
             Close();
         }
     }

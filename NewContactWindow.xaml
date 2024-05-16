@@ -6,14 +6,19 @@
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
         Title="NewContactWindow" Height="300" Width="300"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid>
         <StackPanel Margin="10">
-            <TextBox x:Name="firstNameTextBox" Margin="0,0,0,5"/>
-            <TextBox x:Name="lastNameTextBox" Margin="0,0,0,5"/>
-            <TextBox x:Name="emailTextBox" Margin="0,0,0,5"/>
-            <TextBox x:Name="phoneTextBox" Margin="0,0,0,5"/>
-            <Button x:Name="submitButton" Content="Submit" Click="SubmitButton_Click"/>
+            <TextBlock Text="First Name:"/>
+            <TextBox x:Name="firstNameTextBox"/>
+            <TextBlock Text="Last Name:"/>
+            <TextBox x:Name="lastNameTextBox"/>
+            <TextBlock Text="Email:"/>
+            <TextBox x:Name="emailTextBox"/>
+            <TextBlock Text="Phone Number:"/>
+            <TextBox x:Name="phoneTextBox"/>
+            <Button x:Name="submitButton" Content="Submit" Margin="0,10,0,0"
+                    Click="SubmitButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>
